@@ -1,10 +1,9 @@
-html
-    head
+extends layout
 
-        title!= title
-body
+block content
 
     h1!= message
-    div= 'sdfdsf'
-    for i in text
-        div= i
+    div
+        ul
+            for i in text
+               li= i

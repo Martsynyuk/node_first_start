@@ -1,17 +1,14 @@
 'use strict';
 
-var express     = require('express');
-var MongoClient = require('mongodb').MongoClient;
-var app         = express();
+var express     = require('express'),
+    app         = express(),
+    db          = require('./core/dbConnect');
 
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'jade');
 app.set('views', 'views');
 
 app.get('/', function(request, response) {
-    /*MongoClient.connect('mongodb://localhost:27015/dbName', function(err, db){
-        console.log(db);
-    });*/
-    //response.send('test');
     response.render('index',
         {
             title: 'Hey',
