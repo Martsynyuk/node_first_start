@@ -1,8 +1,13 @@
 doctype html
 html
+
 head
-title= title
-link(rel='stylesheet', href='/css/main.css')
+
+title!= title
+link(rel='stylesheet', href='css/main.css')
+link(rel="icon" type="image/png" href="images/favicon.png")
+script(src='js/main.js')
+
 body
-    div Content
+    div!= content
 block content

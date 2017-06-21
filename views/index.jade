@@ -5,5 +5,6 @@ block content
     h1!= message
     div
         ul
-            for i in text
-               li= i
+            if (text)
+                for i in text
+                   li= i
