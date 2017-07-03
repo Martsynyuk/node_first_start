@@ -1,15 +1,22 @@
 'use strict';
 
-var express     = require('express'),
-    app         = express(),
-    db          = require('./core/dbConnect'),
-    bodyParser  = require('body-parser');
+var express          = require('express')
+  , app              = express()
+  , db               = require('./core/dbConnect')
+  , bodyParser       = require('body-parser')
+  , expressValidator = require('express-validator');
 
 app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.set('view engine', 'jade');
 app.set('views', 'views');
 
 app.get('/', function(req, res) {
+    db('mongodb://localhost:27015/dbName', function (err, db) {
+        console.log(db);
+    });
     res.render('index',
         {
             content: 'Home page',
@@ -24,6 +31,12 @@ app.get('/login', function (req, res) {
         content: 'Sign In',
         title: 'login'
     });
+});
+
+app.post('/login', function (req, res, next) {
+    console.log(req.body.name);
+    console.log(req.body.password);
+    res.redirect('/');
 });
 
 app.listen(3000, function () {
