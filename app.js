@@ -14,9 +14,14 @@ app.set('view engine', 'jade');
 app.set('views', 'views');
 
 app.get('/', function(req, res) {
-    db('mongodb://localhost:27015/dbName', function (err, db) {
-        console.log(db);
+    db.insert({
+            name: 'terr',
+            age: '34',
+            STATUS: 'LOL'
+            }, function () {
+        db.selectAll();
     });
+
     res.render('index',
         {
             content: 'Home page',
