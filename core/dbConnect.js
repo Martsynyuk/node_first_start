@@ -2,6 +2,10 @@ var MongoClient = require('mongodb').MongoClient;
 var dbName = 'dbName';
 
 var DataBase = {
+    connect: function (callback) {
+        MongoClient.connect('mongodb://localhost:27015/' + dbName, callback)
+    },
+
     insert: function(data) {
         MongoClient.connect('mongodb://localhost:27015/' + dbName, function (err, db) {
             var collection = db.collection('users');
