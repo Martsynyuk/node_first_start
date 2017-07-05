@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
     dbInstance.insert('users', {
         name: 'Anton Martsynyuk 1',
         age: '34',
-        STATUS: 'Dr'
+        STATUS: 'Drer'
     }).then(
         result => {
             res.render('index',
@@ -34,8 +34,6 @@ app.get('/', function(req, res) {
             console.log(error);
         }
     );
-
-
 });
 
 app.get('/login', function (req, res) {
@@ -43,6 +41,19 @@ app.get('/login', function (req, res) {
         content: 'Sign In',
         title: 'login'
     });
+});
+
+app.get('/all', (req, res) => {
+    const dbInstance = new db('localhost', 'dbName');
+    dbInstance.selectAll('users').then(
+        console.log(dbInstance)
+    );
+
+    res.render('all', {
+        users: {
+
+        }
+    })
 });
 
 app.post('/login', function (req, res, next) {

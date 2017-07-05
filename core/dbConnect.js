@@ -15,12 +15,13 @@ class Database {
 
         this.promise = new Promise((resolve, reject) => {
             this.resolve = resolve;
-            this.reject = reject;
+            this.reject  = reject;
         });
 
-        this.host = host;
+        this.host   = host;
         this.dbName = dbName;
-        this.port = port;
+        this.port   = port;
+        this.res    = '';
     }
 
     _connectionString () {
@@ -46,6 +47,23 @@ class Database {
                 } else {
                     this.resolve(res);
                 }
+                db.close();
+            })
+        }, data);
+
+        return this.promise;
+    }
+
+    selectAll (collection, data = {}) {
+
+        this._executeConnection((data, db) => {
+            db.collection(collection).find().toArray((err, res) => {
+                if (err) {
+                    this.reject(err);
+                } else {
+                    this.resolve(res);
+                }
+                db.close();
             })
         }, data);
 
