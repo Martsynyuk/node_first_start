@@ -14,21 +14,28 @@ app.set('view engine', 'jade');
 app.set('views', 'views');
 
 app.get('/', function(req, res) {
-    db.insert({
-            name: 'terr',
-            age: '34',
-            STATUS: 'LOL'
-            }, function () {
-        db.selectAll();
-    });
+    const dbInstance = new db('localhost', 'dbName');
+    dbInstance.insert('users', {
+        name: 'Anton Martsynyuk 1',
+        age: '34',
+        STATUS: 'Dr'
+    }).then(
+        result => {
+            res.render('index',
+                {
+                    content: 'Home page',
+                    title: 'Hey',
+                    message: 'Hello there lol!',
+                    text: {'s':'asdasd', 'v':'24234'}
+                });
+        }
+    ).catch(
+        error => {
+            console.log(error);
+        }
+    );
 
-    res.render('index',
-        {
-            content: 'Home page',
-            title: 'Hey',
-            message: 'Hello there lol!',
-            text: {'s':'asdasd', 'v':'24234'}
-        });
+
 });
 
 app.get('/login', function (req, res) {
