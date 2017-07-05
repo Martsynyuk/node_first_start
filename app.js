@@ -46,7 +46,7 @@ app.get('/login', function (req, res) {
 app.get('/all', (req, res) => {
     const dbInstance = new db('localhost', 'dbName');
     dbInstance.selectAll('users').then(
-        console.log(dbInstance)
+
     );
 
     res.render('all', {

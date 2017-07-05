@@ -28,7 +28,7 @@ class Database {
         return `mongodb://${this.host}:${this.port}/${this.dbName}`;
     }
 
-    _executeConnection (callback, data) {
+    _executeConnection (callback, data = {}) {
         MongoClient.connect(this._connectionString(), (err, db) => {
             if (err) {
                 throw err;
@@ -54,7 +54,7 @@ class Database {
         return this.promise;
     }
 
-    selectAll (collection, data = {}) {
+    selectAll (collection) {
 
         this._executeConnection((data, db) => {
             db.collection(collection).find().toArray((err, res) => {
@@ -65,7 +65,7 @@ class Database {
                 }
                 db.close();
             })
-        }, data);
+        });
 
         return this.promise;
     }
