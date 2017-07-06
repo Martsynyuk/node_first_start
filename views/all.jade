@@ -1,4 +1,10 @@
 extends layout
 
 block content
-    div test
+    div(style={font: }) users
+        if (users)
+            for user in users
+                div user
+                    ul
+                        li= user.name
+                        li= user.age

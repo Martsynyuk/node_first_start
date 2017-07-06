@@ -21,7 +21,6 @@ class Database {
         this.host   = host;
         this.dbName = dbName;
         this.port   = port;
-        this.res    = '';
     }
 
     _connectionString () {
@@ -58,6 +57,7 @@ class Database {
 
         this._executeConnection((data, db) => {
             db.collection(collection).find().toArray((err, res) => {
+
                 if (err) {
                     this.reject(err);
                 } else {

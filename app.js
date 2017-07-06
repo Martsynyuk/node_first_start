@@ -14,9 +14,19 @@ app.set('view engine', 'jade');
 app.set('views', 'views');
 
 app.get('/', function(req, res) {
+    res.render('index',
+        {
+            content: 'Home page',
+            title: 'Hey',
+            message: 'Hello there lol!',
+            text: {'s':'asdasd', 'v':'24234'}
+        });
+});
+
+app.get('/insert', (req, res) => {
     const dbInstance = new db('localhost', 'dbName');
     dbInstance.insert('users', {
-        name: 'Anton Martsynyuk 1',
+        name: 'Anton Martsynyuk 123',
         age: '34',
         STATUS: 'Drer'
     }).then(
@@ -43,23 +53,22 @@ app.get('/login', function (req, res) {
     });
 });
 
-app.get('/all', (req, res) => {
-    const dbInstance = new db('localhost', 'dbName');
-    dbInstance.selectAll('users').then(
-
-    );
-
-    res.render('all', {
-        users: {
-
-        }
-    })
-});
-
 app.post('/login', function (req, res, next) {
     console.log(req.body.name);
     console.log(req.body.password);
     res.redirect('/');
+});
+
+app.get('/all', (req, res) => {
+    const dbInstance = new db('localhost', 'dbName');
+
+    dbInstance.selectAll('users').then(
+        (users) => {
+            res.render('all', {
+                users: users
+            });
+        }
+    );
 });
 
 app.listen(3000, function () {
