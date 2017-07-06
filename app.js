@@ -63,7 +63,7 @@ app.get('/all', (req, res) => {
     const dbInstance = new db('localhost', 'dbName');
 
     dbInstance.selectAll('users').then(
-        (users) => {
+        users => {
             res.render('all', {
                 users: users
             });
