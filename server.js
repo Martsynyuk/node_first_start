@@ -1,6 +1,6 @@
 "use strict";
 
-let express    = require('express')
+const express    = require('express')
   , path       = require('path')
   , bodyParser = require('body-parser')
   , app        = express()
@@ -8,10 +8,10 @@ let express    = require('express')
   , tasks      = require('./routers/tasks');
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'pug');
+app.engine('pug', require('pug').renderFile);
 
-app.use(express.static(path.join(__dirname + 'client')));
+app.use(express.static(path.join(__dirname + 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
