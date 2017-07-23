@@ -3,8 +3,8 @@
 const express   = require('express')
     , router    = express.Router()
     , mongojs   = require('mongojs')
-    , db        = mongojs('mongodb://localhost:27017/Testdb', ['tasks']);
-let task = {};
+    , db        = mongojs('mongodb://localhost:27017/Testdb');
+let task;
 
 //get all
 router.get('/tasks', (req, res, next) => {
