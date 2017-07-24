@@ -3,7 +3,7 @@
 const express   = require('express')
     , router    = express.Router()
     , mongojs   = require('mongojs')
-    , db        = mongojs('mongodb://localhost:27017/Testdb');
+    , db        = mongojs('mongodb://localhost:27015/Testdb'); //job port 27015
 let task;
 
 //get all
@@ -74,7 +74,7 @@ router.put('/task/:id', (req, res, next) => {
         db.tasks.update(
             {_id: mongojs.ObjectID(req.params.id)},
             task,
-            {},
+
             (err, task) => {
                 if (err) {
                     res.send(err);
