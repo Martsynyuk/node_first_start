@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   title = 'home';
+  clickMessage = '';
+
+  onClickMe() {
+    this.clickMessage = 'You lol';
+  }
 }
