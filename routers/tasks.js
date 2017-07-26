@@ -26,7 +26,7 @@ router.get('/task/:id', (req, res, next) => {
             }
             res.json(task);
         }
-    );
+);
 });
 
 //create
