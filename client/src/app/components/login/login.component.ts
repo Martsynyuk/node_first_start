@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { User } from '../../models/user';
 
 @Component({
@@ -9,7 +9,7 @@ import { User } from '../../models/user';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-
+  @Input() tere;
   userInfo = [
     'Terr',
     'terr@gmail.com',

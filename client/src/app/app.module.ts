@@ -6,8 +6,8 @@ import { RouterModule } from '@angular/router';
 import { appRouters } from './routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
+import { IndexComponent } from './components/index/index.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,7 @@ import { LoginComponent } from './components/login/login.component';
   ],
   providers: [],
   bootstrap: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ]
 })
 export class AppModule { }
