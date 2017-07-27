@@ -10,6 +10,6 @@ export class HomeComponent {
   clickMessage = '';
 
   onClickMe() {
-    this.clickMessage = 'You lol';
+    this.clickMessage = 'You !!!';
   }
 }
