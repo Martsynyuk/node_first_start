@@ -9,7 +9,6 @@ import { User } from '../../models/user';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-  @Input() tere;
   userInfo = [
     'Terr',
     'terr@gmail.com',
@@ -17,7 +16,7 @@ export class LoginComponent implements OnInit {
     'Weather Changer'
   ];
 
-  user = new User('', '', '', '');
+  user = new User('terr', '', '', '');
 
   submitted = false;
 

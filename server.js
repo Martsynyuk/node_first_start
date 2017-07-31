@@ -1,11 +1,11 @@
 "use strict";
 
 const express    = require('express')
-  , path       = require('path')
-  , bodyParser = require('body-parser')
-  , app        = express()
-  , index      = require('./routers/index')
-  , tasks      = require('./routers/tasks');
+    , path       = require('path')
+    , bodyParser = require('body-parser')
+    , app        = express()
+    , index      = require('./routers/index')
+    , tasks      = require('./routers/tasks');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
