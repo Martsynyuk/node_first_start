@@ -11,16 +11,21 @@ export class LoginComponent implements OnInit {
   constructor() { }
   userInfo = [
     'Terr',
-    'terr@gmail.com',
-    'Super Hot',
-    'Weather Changer'
+    'Sass',
+    'Wini',
+    'Vet'
   ];
 
-  user = new User('terr', '', '', '');
+  test = '';
+
+  user = new User('terr', 'terr@gmail.com', '', '', this.userInfo[2]);
 
   submitted = false;
 
   onSubmit() { this.submitted = true; }
+  addUser() {
+    console.log(this.user);
+  }
 
   ngOnInit() {
   }

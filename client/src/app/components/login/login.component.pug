@@ -1,4 +1,4 @@
-div(class='conteiner col-md-4')
+div(class='conteiner col-md-4 col-md-offset-3')
   h1 Sign Up
   form(class='col-md-8')
     div(class='form-group')
@@ -11,16 +11,16 @@ div(class='conteiner col-md-4')
 
     div(class='form-group')
       label(for='password') * Password :
-      input(type='password' class='form-control' name='password' id='password' required)
+      input([(ngModel)]='user.password' type='password' class='form-control' name='password' id='password' required)
 
     div(class='form-group')
       label(for='confirm_password') * Confirm password :
-      input(type='password' class='form-control' name='confirm_password' id='confirm_password' required)
+      input([(ngModel)]='user.confirm_password' type='password' class='form-control' name='confirm_password' id='confirm_password' required)
 
     div(class="form-group")
-      label(for="power")
-        select(class="form-control" id="power" required)
+      label(for="info")
+        select([(ngModel)]='user.info' name='info' class="form-control" id="info" required)
+          option(value="{{user.info}}" disabled="true") {{user.info}}
           option(*ngFor="let pow of userInfo" value="{{pow}}") {{pow}}
 
-    button(type='submit' class='btn btn-success') Submit
-
+    button( type='submit' class='btn btn-success' "(click)"="addUser()") Submit
