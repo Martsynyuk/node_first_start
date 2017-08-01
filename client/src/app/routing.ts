@@ -3,6 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { TestComponent } from './test/test.component';
 
 export const appRouters: Routes = [
   {
@@ -20,5 +21,9 @@ export const appRouters: Routes = [
   {
     path: 'registration',
     component: RegistrationComponent
+  },
+  {
+    path: 'test',
+    component: TestComponent
   }
 ];
