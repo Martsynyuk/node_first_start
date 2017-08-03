@@ -9,16 +9,8 @@ import { User } from '../../models/user';
 export class LoginComponent implements OnInit {
 
   constructor() { }
-  userInfo = [
-    'Terr',
-    'Sass',
-    'Wini',
-    'Vet'
-  ];
 
-  test = '';
-
-  user = new User('terr', 'terr@gmail.com', '', '', this.userInfo[2]);
+  user = new User('terr', 'terr@gmail.com', '', '');
 
   submitted = false;
 
