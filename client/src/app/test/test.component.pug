@@ -1,17 +1,1 @@
-form([formGroup]="myForm" novalidate (ngSubmit)="submit()")
-  div.form-group
-    label(for='name')
-    input.form-control(name="name" id='name' formControlName='userName')
-  div.alert.alert-danger(*ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched") Не указано имя
-
-  div.form-group
-    label(for='email')
-    input.form-control(name='email' id='email' formControlName='userEmail')
-  div.alert.alert-danger(*ngIf="myForm.controls['userEmail'].invalid && myForm.controls['userEmail'].touched") Некорректный email
-
-  div.form-group
-    label(for='phone')
-    input.form-control(name='phone' id='phone' formControlName='userPhone')
-
-  div.form-group
-    button.btn.btn-default([disabled]='myForm.invalid') Отправить
+div.btn.btn-danger("(click)" ="send(test)") {{test}}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, ValidationErrors} from '@angular/forms';
 import { User } from '../../models/user';
+import { UserValidate } from '../../validations/user_validate';
 
 @Component({
   selector: 'app-registration',
@@ -10,32 +11,12 @@ import { User } from '../../models/user';
 
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
 
-  user = new User('Terr', '', '', '');
+  }
 
-  regForm = new FormGroup({
-    'user_name': new FormControl(this.user.name, [
-      Validators.required,
-      Validators.minLength(4),
-      Validators.maxLength(16)
-    ]),
-    'user_email': new FormControl('', [
-      Validators.required,
-      Validators.email
-    ]),
-    'user_password': new FormControl(this.user.email, [
-      Validators.required,
-      Validators.minLength(6),
-      Validators.maxLength(16)
-    ]),
-    'user_confirm_password': new FormControl('', [
-      Validators.required,
-      Validators.minLength(6),
-      Validators.maxLength(16)
-    ]),
-  });
-
+  user      = new User('Terr', '', '', '');
+  regForm   = new FormGroup(new UserValidate().regValid);
   submitted = false;
 
   addUser() {
