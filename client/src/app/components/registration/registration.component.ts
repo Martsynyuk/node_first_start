@@ -11,9 +11,7 @@ import { UserValidate } from '../../validations/user_validate';
 
 export class RegistrationComponent implements OnInit {
 
-  constructor() {
-
-  }
+  constructor() {}
 
   user      = new User('Terr', '', '', '');
   regForm   = new FormGroup(new UserValidate().regValid);
@@ -24,6 +22,5 @@ export class RegistrationComponent implements OnInit {
     console.log(this.user);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

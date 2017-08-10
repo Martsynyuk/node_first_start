@@ -1,6 +1,6 @@
 "use strict";
 
-let Translate = {
+const Translate = {
   main: {
       "Testing...": {
           "es": "Pruebas...",

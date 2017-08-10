@@ -2,4 +2,13 @@ extends layout
 
 block content
     div test
+        h1!=translate('test1')
+        div(ng-app="myApp")
+            div(ng-controller="myControl")
+                select(type="text" ng-change="myFunc(myValue)" ng-model="myValue")
+                    option(value='') en
+                    option(value='es') es
+                    option(value='sr') sr
 
+    script(src='/public/js/angular.min.js')
+    script(src='/public/js/main.js')

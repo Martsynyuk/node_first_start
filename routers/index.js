@@ -3,7 +3,8 @@
 const express     = require('express')
      , router     = express.Router()
      , localizate = require('localize')
-     , translate  = require('./translate');
+     , translate  = require('./translate')
+     , app        = express();
 
 router.get('/', (req, res, next) => {
     res.render('index', {
@@ -12,22 +13,12 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/test', (req, res, next) => {
-
-    let myLocalize = new localizate(translate.main);
-
-    console.log(myLocalize.translate("Testing..."));
-    console.log(myLocalize.translate("Substitution"));
-    console.log(myLocalize.translate("test1"));
-
-    myLocalize.setLocale("es");
-    console.log(myLocalize.translate("Testing..."));
-    console.log(myLocalize.translate("Substitution"));
-    console.log(myLocalize.translate("test1"));
-
-    myLocalize.setLocale("sr");
-    console.log(myLocalize.translate("Substitution"));
-    console.log(myLocalize.translate("test1"));
     res.render('test')
+});
+
+router.post('/test1', (req, res, next) => {
+    lang(req.body.lang);
+    return res.render('test');
 });
 
 module.exports = router;
