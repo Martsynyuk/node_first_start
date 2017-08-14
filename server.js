@@ -10,6 +10,8 @@ const express       = require('express')
     , sessionConfig = require('./config/session_config')
     , localizate    = require('localize')
     , translate     = require('./routers/translate');
+global.local        = new localizate(translate.main);
+global.lang         = 'en';
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -26,17 +28,15 @@ app.use('/', index);
 app.use('/api', tasks);
 
 app.locals.translate = ((text) => {
-    let local = new localizate(translate.main);
-    global.lang = (setLang) => {
-        local.setLocale(setLang);
-    };
     return local.translate(text);
 });
+
+function setLang() {
+
+}
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
 
 app.use('/api', tasks);
-
-

@@ -5,10 +5,10 @@ block content
         h1!=translate('test1')
         div(ng-app="myApp")
             div(ng-controller="myControl")
+                div=lang
                 select(type="text" ng-change="myFunc(myValue)" ng-model="myValue")
-                    option(value='') en
-                    option(value='es') es
-                    option(value='sr') sr
+                    option(value='') choose language
+                    option(ng-repeat='lang1 in langs' value='{{lang1}}') {{lang1}}
 
     script(src='/public/js/angular.min.js')
     script(src='/public/js/main.js')
